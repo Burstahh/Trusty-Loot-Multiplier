@@ -1,56 +1,43 @@
 # Trusty Loot Multiplier
 
-Configurable loot multiplier for **Crimson Desert v1.05.00**.
+Configurable loot, resource, trust, Pet Abyss Gear, and DropChance mod for **Crimson Desert v1.05.01**.
 
-Created by **FlyByDerp aka Burstahh**.
+Created by **Burstahh**.
 
-## Features
+## Overview
 
-- Per-category loot multipliers
-- 2x to 10x multiplier support
+Trusty Loot Multiplier lets you customize how much loot you receive from supported Crimson Desert reward sources.
+
+It supports per-category loot quantity multipliers, ResourceNodes, NPC Trust Gain, Pet Abyss Gear affection boost, and the new optional DropChance system.
+
+The mod uses active archive scanning, so it can patch the archive the game is actually reading, including JSON Mod Manager / pre-modded setups when supported.
+
+## Current Version
+
+**Trusty Loot Multiplier v3.3.0**
+
+Built and tested for **Crimson Desert v1.05.01**.
+
+## Main Features
+
+- Per-category loot quantity multipliers
+- Optional DropChance system
 - ResourceNodes multiplier
 - NPC Trust Gain adjustment
 - Pet Abyss Gear +10 support
 - Expanded Gathering coverage for flowers, herbs, and botany pickups
-- Active archive scanning
-- Automatic backup and restore on normal game close
-- Supports normal `bin64` install or `OptiScaler/plugins` install
+- Active archive scanning for JSON Mod Manager / pre-modded setups
+- Runtime backup and restore on normal game close
+- Leftover backup restore on next launch if needed
 
-## Current Version
+## DropChance
 
-**Trusty Loot Multiplier v3.2.1**
+DropChance raises supported DropSet chance values up to the selected target percent.
 
-Built for: **Crimson Desert v1.05.00**
+Example:
 
-## Installation
+- `ChanceBoost=5` raises supported drops below 5% up to 5%
+- `ChanceBoost=25` raises supported drops below 25% up to 25%
+- `ChanceBoost=100` makes supported drops guaranteed where supported
 
-1. Download the latest release zip.
-2. Extract the files.
-3. Place `TrustyLootMultiplier.asi` and `TrustyLootMultiplier.ini` into your game's `bin64` folder.
-4. Install an ASI loader if you do not already have one.
-5. Launch the game.
-6. Check `TrustyLootMultiplier.log` if you need to confirm the mod loaded correctly.
-
-## ASI Loader
-
-This mod requires an ASI loader.
-
-If you need an ASI loader, use the official Ultimate ASI Loader release page (x64 Versions only):
-
-https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases
-
-## Notes
-
-The ASI version temporarily patches supported local game archive data at runtime.
-The mod creates backups before patching and restores the original files when the game closes normally.
-If the game crashes before restore finishes, remove the ASI and run Steam Verify Integrity.
-
-## Known Not Covered Yet
-
-- Insects
-- Fish
-- Some camp crops
-- Some fixed pickup rewards
-- Some common alchemy pickup paths
-
-These may use separate game logic and are still being researched.
+DropChance affects how often supported drops happen, not how many items you receive.
