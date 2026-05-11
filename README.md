@@ -1,6 +1,6 @@
 # Trusty Loot Multiplier
 
-Configurable loot, resource, trust, Pet Abyss Gear, Horse Abyss Gear, and DropChance mod for **Crimson Desert v1.05.01**.
+Configurable loot, resource, trust, Pet Gear, Horse Gear, and DropChance ASI mod for **Crimson Desert v1.06.00**.
 
 Created by **Burstahh**.
 
@@ -8,21 +8,19 @@ Created by **Burstahh**.
 
 Trusty Loot Multiplier lets you customize supported Crimson Desert reward sources.
 
-It supports per-category loot quantity multipliers, per-category DropChance controls, ResourceNodes, NPC Trust Gain, Pet Abyss Gear, Horse Abyss Gear, Gear split, Breakables split, and Chests split.
+It supports per-category loot quantity multipliers, per-category DropChance controls, ResourceNodes, NPC Trust Gain, Pet Abyss Gear, Horse Abyss Gear, Gear split, Breakables split, Chests split, Containers split, TradeGoods split, and v3.4 category cleanup logic.
 
-The mod uses active archive scanning, so it can patch the archive the game is actually reading, including supported JSON Mod Manager / pre-modded setups.
+The ASI version uses active archive scanning, so it can patch the archive the game is actually reading, including supported pre-modded / overlay setups.
 
 ## Current Version
 
-**Trusty Loot Multiplier v3.3.3**
+**Trusty Loot Multiplier v3.4.0**
 
-Built and tested for **Crimson Desert v1.05.01**.
+Built and tested for **Crimson Desert v1.06.00**.
 
 This is the current recommended ASI build.
 
-v3.3.3 is considered the stable feature-complete build.
-
-Future updates will mainly be compatibility updates if Crimson Desert patches break the mod, or fixes for serious issues if needed.
+The ASI version is the main supported version going forward.
 
 ## Main Features
 
@@ -30,14 +28,20 @@ Future updates will mainly be compatibility updates if Crimson Desert patches br
 - Per-category DropChance controls
 - ResourceNodes multiplier
 - NPC Trust Gain adjustment
-- Pet Abyss Gear +10 support
-- Horse Abyss Gear +10 support
+- Pet Abyss Gear / Pet Trust Gear +10 support
+- Horse Abyss Gear / Horse EXP Gear +10 support
 - Master Trainer’s Touch support
+- Supported riding gear Horse EXP +10 support
 - Gear split for likely non-stacking equipment drops
 - Breakables split for jars, pots, barrels, boxes, crates, and clutter
 - Chests split for actual chest loot
+- Containers split for supported non-chest container loot
+- TradeGoods split for trade-good-style rewards
+- Furniture/Housing safety
+- Provision/Goods clutter safety
+- Unique/Special reward safety
 - Expanded Gathering coverage for flowers, herbs, and botany pickups
-- Active archive scanning for supported JSON Mod Manager / pre-modded setups
+- Active archive scanning for supported pre-modded / overlay setups
 - Runtime backup and restore on normal game close
 - Leftover backup restore on next launch if needed
 
@@ -51,7 +55,7 @@ DropChance does not control how many items you receive.
 
 Quantity multipliers and DropChance are separate settings.
 
-In v3.3.3, `[DropChance]` is the master enable / disable section.
+`[DropChance]` is the master enable / disable section.
 
 Individual DropChance values are controlled under `[CategoryMultipliers]`.
 
@@ -83,21 +87,23 @@ ResourceNodes affect quantity only.
 
 DropChance category settings do not apply to ResourceNodes.
 
-## Trust, Pet Abyss Gear, and Horse Abyss Gear
+## Trust, Pet Gear, and Horse Gear
 
 NPC Trust Gain can be adjusted from the INI.
 
 Vanilla Trust Gain is `5`.
 
-Pet Abyss Gear support boosts compatible Pet Abyss Gear affection / friendliness effects up to the game capped +10 value.
+Pet Abyss Gear / Pet Trust Gear support boosts compatible Pet affection / friendliness effects up to the game capped +10 value.
 
-Horse Abyss Gear support boosts supported Horse EXP gear effects up to the game capped +10 value.
+Horse Abyss Gear / Horse EXP Gear support boosts supported Horse EXP gear effects up to the game capped +10 value.
 
-Horse Abyss Gear support includes Equestrian gear and Master Trainer’s Touch.
+Horse Gear support includes supported Abyss Gear, Equestrian gear, Master Trainer’s Touch, and supported riding gear that already has Horse EXP Gain on it.
 
 You still need the correct Abyss Gear or supported gear equipped for these effects to matter.
 
-## Chests, Containers, and Breakables
+## Chests, Containers, Breakables, and TradeGoods
+
+v3.4.0 expands category cleanup so different reward sources can be controlled more safely.
 
 Chests are separated from normal Containers and Breakables.
 
@@ -107,12 +113,40 @@ Chests are separated from normal Containers and Breakables.
 - `ContainersDropChance` controls supported non-chest container DropChance
 - `Breakables` controls supported jars, pots, barrels, boxes, crates, and clutter
 - `BreakablesDropChance` controls supported breakable clutter DropChance
+- `TradeGoods` controls supported trade-good-style rewards
+- `TradeGoodsDropChance` controls supported trade-good-style DropChance
 
-This helps reduce loot explosions from breakables while still allowing actual chests to be boosted separately.
+This helps reduce accidental loot explosions from breakables while still allowing actual chests and supported rewards to be boosted separately.
+
+## Category Cleanup and Safety
+
+v3.4.0 adds updated category cleanup logic.
+
+The goal is not to nerf loot. The goal is to route rewards into safer categories so users can control what gets boosted.
+
+Safety cleanup includes:
+
+- Furniture/Housing rewards stay vanilla to avoid permanent housing/deco reward issues
+- Provision/Goods clutter rewards stay vanilla where needed
+- Unique/Special rewards stay vanilla where needed
+- Keys, maps, quest documents, recipes/manuals, and similar special rewards stay protected
+- Gear is separated from normal stackable loot
+- Breakable-source rewards stay controlled by Breakables where possible
+- Chests and non-chest containers are separated
+
+## ALL TEH Loot
+
+ALL TEH Loot is the chaos preset.
+
+It is intentionally aggressive.
+
+However, the v3.4.0 ALL TEH Loot logic still keeps important furniture/provision/unique safety fixes in place. This is to avoid breaking permanent housing/deco rewards or other special reward paths.
+
+Use ALL TEH Loot at your own risk.
 
 ## Known Not Covered
 
-v3.3.3 already covers the main reward paths I wanted to support.
+v3.4.0 covers the main reward paths I wanted to support.
 
 Some smaller or more scripted reward paths may still stay vanilla.
 
@@ -120,15 +154,17 @@ Known examples:
 
 - Bugs and insects
 - Fish
-- Some camp crops
+- Bait or unknown bait-related paths
+- Some camp crops, such as Abyss Trees / Apple Trees
 - Some fixed pickups
 - Some scripted quest rewards
 - Some scripted puzzle rewards
 - Some common alchemy pickup paths
+- Some fixed/scripted/skill-menu/level-up/puzzle/counter-style Abyss reward paths
 
-Some Abyss rewards are supported, but fixed or scripted Abyss puzzle rewards may stay vanilla.
+AbyssRewards means supported Abyss/AbyssGear DropSet reward paths, not every scripted Abyss Artifact or special Abyss reward path.
 
-These are not currently planned unless a future game update or major issue makes more work necessary.
+Additional niche coverage is not currently planned unless a future game update or serious issue makes more work necessary.
 
 ## Installation
 
@@ -145,15 +181,13 @@ If `TrustyLootMultiplier.log` is not created after launching the game, install t
 
 https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases
 
-Use the Win64 `version.dll` build.
+Use the Win64 `version.dll` build if possible.
 
 ## Important
 
-Do not use the ASI version together with the DMM version or JSON preset version.
-
 Only use one version of Trusty Loot Multiplier at a time.
 
-Using multiple versions together can cause conflicts, duplicated patches, crashes, or broken load order behavior.
+Using multiple versions together can cause conflicts, duplicated patches, crashes, broken load order behavior, or confusing results.
 
 ## Notes
 
