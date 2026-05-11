@@ -134,16 +134,6 @@ Safety cleanup includes:
 - Breakable-source rewards stay controlled by Breakables where possible
 - Chests and non-chest containers are separated
 
-## ALL TEH Loot
-
-ALL TEH Loot is the chaos preset.
-
-It is intentionally aggressive.
-
-However, the v3.4.0 ALL TEH Loot logic still keeps important furniture/provision/unique safety fixes in place. This is to avoid breaking permanent housing/deco rewards or other special reward paths.
-
-Use ALL TEH Loot at your own risk.
-
 ## Known Not Covered
 
 v3.4.0 covers the main reward paths I wanted to support.
