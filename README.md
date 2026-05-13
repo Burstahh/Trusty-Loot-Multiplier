@@ -14,13 +14,9 @@ The ASI version uses active archive scanning, so it can patch the archive the ga
 
 ## Current Version
 
-**Trusty Loot Multiplier v3.4.0**
+**Trusty Loot Multiplier v3.4.1**
 
-Built and tested for **Crimson Desert v1.06.00**.
-
-This is the current recommended ASI build.
-
-The ASI version is the main supported version going forward.
+Built and tested for **Crimson Desert v1.06.01**.
 
 ## Main Features
 
